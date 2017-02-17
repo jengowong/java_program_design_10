@@ -1,4 +1,8 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
+
+import com.github.jengo.java.program.design10.ch27.AbstractGraph;
+import com.github.jengo.java.program.design10.ch27.Graph;
+import com.github.jengo.java.program.design10.ch27.UnweightedGraph;
 
 public class TestGraph {
     public static void main(String[] args) {

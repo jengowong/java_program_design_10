@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
 
 public interface Graph<V> {
     /** Return the number of vertices in the graph */
@@ -29,7 +29,7 @@ public interface Graph<V> {
     public void printEdges();
 
     /** Obtain a depth-first search tree */
-    public AbstractGraph<V>.Tree dfs(int v);
+    public AbstractGraph.Tree dfs(int v);
 
     /** Obtain a breadth-first search tree */
     public AbstractGraph<V>.Tree bfs(int v);

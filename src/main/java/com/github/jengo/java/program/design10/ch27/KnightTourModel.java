@@ -1,4 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
+
+import com.github.jengo.java.program.design10.ch27.AbstractGraph;
+import com.github.jengo.java.program.design10.ch27.UnweightedGraph;
 
 import java.util.ArrayList;
 import java.util.List;

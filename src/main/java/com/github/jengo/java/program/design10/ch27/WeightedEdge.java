@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
 
 public class WeightedEdge extends AbstractGraph.Edge
         implements Comparable<WeightedEdge> {

@@ -1,6 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
 
-public class TestDFS {
+import com.github.jengo.java.program.design10.ch27.AbstractGraph;
+import com.github.jengo.java.program.design10.ch27.Graph;
+import com.github.jengo.java.program.design10.ch27.UnweightedGraph;
+
+public class TestBFS {
     public static void main(String[] args) {
         String[] vertices = {"Seattle", "San Francisco", "Los Angeles",
                 "Denver", "Kansas City", "Chicago", "Boston", "New York",
@@ -23,18 +27,17 @@ public class TestDFS {
 
         Graph<String> graph =
                 new UnweightedGraph<String>(edges, vertices);
-        AbstractGraph<String>.Tree dfs = graph.dfs(5); // 5 is Chicago
+        AbstractGraph<String>.Tree bfs = graph.bfs(5); // 5 is Chicago
 
-        java.util.List<Integer> searchOrders = dfs.getSearchOrders();
-        System.out.println(dfs.getNumberOfVerticesFound() +
-                " vertices are searched in this DFS order:");
+        java.util.List<Integer> searchOrders = bfs.getSearchOrders();
+        System.out.println(bfs.getNumberOfVerticesFound() +
+                " vertices are searched in this order:");
         for (int i = 0; i < searchOrders.size(); i++)
-            System.out.print(graph.getVertex(searchOrders.get(i)) + " ");
-        System.out.println();
+            System.out.println(graph.getVertex(searchOrders.get(i)));
 
         for (int i = 0; i < searchOrders.size(); i++)
-            if (dfs.getParent(i) != -1)
+            if (bfs.getParent(i) != -1)
                 System.out.println("parent of " + graph.getVertex(i) +
-                        " is " + graph.getVertex(dfs.getParent(i)));
+                        " is " + graph.getVertex(bfs.getParent(i)));
     }
 }

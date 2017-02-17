@@ -1,4 +1,6 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
+
+import com.github.jengo.java.program.design10.Displayable;
 
 import javax.swing.*;
 

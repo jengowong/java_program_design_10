@@ -1,4 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch27;
+
+import com.github.jengo.java.program.design10.Displayable;
+import com.github.jengo.java.program.design10.ch27.Graph;
 
 public class GraphView extends javax.swing.JPanel {
     private Graph<? extends Displayable> graph;
