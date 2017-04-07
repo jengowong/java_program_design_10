@@ -5,6 +5,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class TestWindowEvent extends JFrame {
+
     public static void main(String[] args) {
         TestWindowEvent frame = new TestWindowEvent();
         frame.setLocationRelativeTo(null); // Center the frame
@@ -85,4 +86,5 @@ public class TestWindowEvent extends JFrame {
             }
         });
     }
+
 }

@@ -1,23 +1,29 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch07;
 
 public class RecursiveBinarySearch {
+
     public static int recursiveBinarySearch(int[] list, int key) {
         int low = 0;
         int high = list.length - 1;
         return recursiveBinarySearch(list, key, low, high);
     }
 
-    public static int recursiveBinarySearch(int[] list, int key,
-                                            int low, int high) {
-        if (low > high)  // The list has been exhausted without a match
+    public static int recursiveBinarySearch(int[] list,
+                                            int key,
+                                            int low,
+                                            int high) {
+        if (low > high) {  // The list has been exhausted without a match
             return -low - 1;
+        }
 
         int mid = (low + high) / 2;
-        if (key < list[mid])
+        if (key < list[mid]) {
             return recursiveBinarySearch(list, key, low, mid - 1);
-        else if (key == list[mid])
+        } else if (key == list[mid]) {
             return mid;
-        else
+        } else {
             return recursiveBinarySearch(list, key, mid + 1, high);
+        }
     }
+
 }
