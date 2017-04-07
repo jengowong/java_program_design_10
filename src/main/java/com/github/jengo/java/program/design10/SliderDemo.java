@@ -1,9 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
+import java.awt.BorderLayout;
 
 public class SliderDemo extends JFrame {
     // Create horizontal and vertical sliders

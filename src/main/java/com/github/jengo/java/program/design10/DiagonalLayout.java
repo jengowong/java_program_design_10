@@ -1,6 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.LayoutManager;
 
 public class DiagonalLayout implements LayoutManager,
         java.io.Serializable {

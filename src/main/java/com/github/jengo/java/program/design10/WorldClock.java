@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;

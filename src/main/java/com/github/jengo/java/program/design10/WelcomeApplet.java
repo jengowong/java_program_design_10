@@ -1,6 +1,7 @@
 package com.github.jengo.java.program.design10;// WelcomeApplet.java: Applet for displaying a message
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JLabel;
 
 public class WelcomeApplet extends JApplet {
     /** Initialize the applet */

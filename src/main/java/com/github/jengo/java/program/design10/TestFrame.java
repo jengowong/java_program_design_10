@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class TestFrame {
     public static void main(String[] args) {

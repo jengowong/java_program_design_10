@@ -1,9 +1,16 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.util.Enumeration;
 
 public class TreeNodeDemo extends JApplet {

@@ -1,14 +1,21 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import java.awt.*;
+import java.awt.BorderLayout;
 
 public class TestTableSortFilter extends JApplet {
     // Create table column names
-    private String[] columnNames =
-            {"Country", "Capital", "Population in Millions", "Democracy"};
+    private String[] columnNames = {"Country", "Capital", "Population in Millions", "Democracy"};
 
     // Create table data
     private Object[][] data = {
@@ -25,8 +32,7 @@ public class TestTableSortFilter extends JApplet {
     private JTable jTable1 = new JTable(data, columnNames);
 
     // Create a TableRowSorter
-    private TableRowSorter<TableModel> sorter =
-            new TableRowSorter<TableModel>(jTable1.getModel());
+    private TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(jTable1.getModel());
 
     private JTextField jtfFilter = new JTextField();
     private JButton btFilter = new JButton("Filter");
@@ -36,8 +42,7 @@ public class TestTableSortFilter extends JApplet {
         jTable1.setRowSorter(sorter);
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(new JLabel("Specify a word to match:"),
-                BorderLayout.WEST);
+        panel.add(new JLabel("Specify a word to match:"), BorderLayout.WEST);
         panel.add(jtfFilter, BorderLayout.CENTER);
         panel.add(btFilter, BorderLayout.EAST);
 

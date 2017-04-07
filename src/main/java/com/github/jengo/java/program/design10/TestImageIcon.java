@@ -1,7 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
 
 public class TestImageIcon extends JFrame {
     private ImageIcon usIcon = new ImageIcon("image/us.gif");

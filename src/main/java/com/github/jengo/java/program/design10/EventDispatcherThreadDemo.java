@@ -1,6 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 public class EventDispatcherThreadDemo extends JApplet {
     public EventDispatcherThreadDemo() {

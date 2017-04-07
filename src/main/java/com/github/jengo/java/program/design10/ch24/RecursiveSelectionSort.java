@@ -1,6 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class RecursiveSelectionSort {
+
     public static void sort(double[] list) {
         sort(list, 0, list.length - 1); // Sort the entire list
     }
@@ -29,7 +30,9 @@ public class RecursiveSelectionSort {
     public static void main(String[] args) {
         double[] list = {2, 1, 3, 1, 2, 5, 2, -1, 0};
         sort(list);
-        for (int i = 0; i < list.length; i++)
-            System.out.print(list[i] + " ");
+        for (double aList : list) {
+            System.out.print(aList + " ");
+        }
     }
+
 }

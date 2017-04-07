@@ -1,8 +1,15 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.rmi.RemoteException;

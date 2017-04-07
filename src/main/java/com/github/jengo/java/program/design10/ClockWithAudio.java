@@ -1,9 +1,12 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.Timer;
 import java.applet.Applet;
 import java.applet.AudioClip;
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

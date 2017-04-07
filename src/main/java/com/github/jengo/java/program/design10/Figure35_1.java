@@ -1,7 +1,17 @@
 package com.github.jengo.java.program.design10;// Figure35_1.java: Figures 24.1
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JToolBar;
+import java.awt.GridLayout;
 
 public class Figure35_1 extends JApplet {
 

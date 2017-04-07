@@ -1,7 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JScrollBar;
+import java.awt.BorderLayout;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 

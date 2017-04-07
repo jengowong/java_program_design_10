@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class TestPaintComponent extends JFrame {
     public TestPaintComponent() {

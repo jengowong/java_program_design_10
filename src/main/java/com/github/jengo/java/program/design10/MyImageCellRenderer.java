@@ -1,8 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Image;
 
 public class MyImageCellRenderer extends DefaultTableCellRenderer {
     /** Override this method in DefaultTableCellRenderer */

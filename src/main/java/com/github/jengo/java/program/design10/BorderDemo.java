@@ -1,6 +1,13 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
@@ -8,7 +15,9 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

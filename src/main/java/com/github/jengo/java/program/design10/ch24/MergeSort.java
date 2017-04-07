@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class MergeSort {
     /** The method for sorting the numbers */
@@ -31,17 +31,20 @@ public class MergeSort {
         int current3 = 0; // Current index in temp
 
         while (current1 < list1.length && current2 < list2.length) {
-            if (list1[current1] < list2[current2])
+            if (list1[current1] < list2[current2]) {
                 temp[current3++] = list1[current1++];
-            else
+            } else {
                 temp[current3++] = list2[current2++];
+            }
         }
 
-        while (current1 < list1.length)
+        while (current1 < list1.length) {
             temp[current3++] = list1[current1++];
+        }
 
-        while (current2 < list2.length)
+        while (current2 < list2.length) {
             temp[current3++] = list2[current2++];
+        }
 
         return temp;
     }
@@ -50,7 +53,9 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] list = {2, 3, 2, 5, 6, 1, -2, 3, 14, 12};
         mergeSort(list);
-        for (int i = 0; i < list.length; i++)
-            System.out.print(list[i] + " ");
+        for (int aList : list) {
+            System.out.print(aList + " ");
+        }
     }
+
 }

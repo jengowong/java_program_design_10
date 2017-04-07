@@ -1,7 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import java.awt.Color;
 
 public class TestPanelDrawing extends JFrame {
     public TestPanelDrawing() {

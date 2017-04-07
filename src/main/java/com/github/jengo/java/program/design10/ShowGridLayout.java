@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.GridLayout;
 
 public class ShowGridLayout extends JFrame {
     public ShowGridLayout() {

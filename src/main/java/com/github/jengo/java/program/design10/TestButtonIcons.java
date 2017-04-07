@@ -1,6 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class TestButtonIcons extends JFrame {
     public static void main(String[] args) {

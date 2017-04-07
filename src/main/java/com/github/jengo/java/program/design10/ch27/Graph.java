@@ -1,48 +1,73 @@
 package com.github.jengo.java.program.design10.ch27;
 
+import java.util.List;
+
 public interface Graph<V> {
-    /** Return the number of vertices in the graph */
-    public int getSize();
 
-    /** Return the vertices in the graph */
-    public java.util.List<V> getVertices();
+    /**
+     * Return the number of vertices in the graph
+     */
+    int getSize();
 
-    /** Return the object for the specified vertex index */
-    public V getVertex(int index);
+    /**
+     * Return the vertices in the graph
+     */
+    List<V> getVertices();
 
-    /** Return the index for the specified vertex object */
-    public int getIndex(V v);
+    /**
+     * Return the object for the specified vertex index
+     */
+    V getVertex(int index);
 
-    /** Return the neighbors of vertex with the specified index */
-    public java.util.List<Integer> getNeighbors(int index);
+    /**
+     * Return the index for the specified vertex object
+     */
+    int getIndex(V vertex);
 
-    /** Return the degree for a specified vertex */
-    public int getDegree(int v);
+    /**
+     * Return the neighbors of vertex with the specified index
+     */
+    List<Integer> getNeighbors(int index);
 
-    /** Return the adjacency matrix */
-    public int[][] getAdjacencyMatrix();
+    /**
+     * Return the degree for a specified vertex index
+     */
+    int getDegree(int index);
 
-    /** Print the adjacency matrix */
-    public void printAdjacencyMatrix();
+    /**
+     * Return the adjacency matrix
+     */
+    int[][] getAdjacencyMatrix();
 
-    /** Print the edges */
-    public void printEdges();
+    /**
+     * Print the adjacency matrix
+     */
+    void printAdjacencyMatrix();
 
-    /** Obtain a depth-first search tree */
-    public AbstractGraph.Tree dfs(int v);
+    /**
+     * Print the edges
+     */
+    void printEdges();
 
-    /** Obtain a breadth-first search tree */
-    public AbstractGraph<V>.Tree bfs(int v);
+    /**
+     * Obtain a depth-first search tree
+     */
+    AbstractGraph.Tree dfs(int index);
+
+    /**
+     * Obtain a breadth-first search tree
+     */
+    AbstractGraph<V>.Tree bfs(int index);
 
     /**
      * Return a Hamiltonian path from the specified vertex
      * Return null if the graph does not contain a Hamiltonian path
      */
-    public java.util.List<Integer> getHamiltonianPath(V vertex);
+    List<Integer> getHamiltonianPath(V vertex);
 
     /**
      * Return a Hamiltonian path from the specified vertex label
      * Return null if the graph does not contain a Hamiltonian path
      */
-    public java.util.List<Integer> getHamiltonianPath(int inexe);
+    List<Integer> getHamiltonianPath(int index);
 }

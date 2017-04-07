@@ -1,7 +1,7 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Graphics;
 
 public class NewPanel extends JPanel {
     protected void paintComponent(Graphics g) {

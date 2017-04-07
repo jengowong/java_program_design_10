@@ -1,7 +1,5 @@
 package com.github.jengo.java.program.design10.ch27;
 
-import com.github.jengo.java.program.design10.ch27.WeightedGraph;
-
 public class TestWeightedGraph {
     public static void main(String[] args) {
         String[] vertices = {"Seattle", "San Francisco", "Los Angeles",

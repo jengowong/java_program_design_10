@@ -3,12 +3,17 @@ package com.github.jengo.java.program.design10;
 import com.sun.rowset.CachedRowSetImpl;
 
 import javax.sql.RowSet;
-import javax.swing.*;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

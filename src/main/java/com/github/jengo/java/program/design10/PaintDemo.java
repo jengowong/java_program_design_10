@@ -1,8 +1,16 @@
 package com.github.jengo.java.program.design10;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.TexturePaint;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 

@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 
 public class TestMessagePanel extends JFrame {
     public TestMessagePanel() {

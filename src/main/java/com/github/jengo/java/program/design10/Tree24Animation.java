@@ -1,6 +1,7 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
 
 public class Tree24Animation extends JApplet {
     public Tree24Animation() {

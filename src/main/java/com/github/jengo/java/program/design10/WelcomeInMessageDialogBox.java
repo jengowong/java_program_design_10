@@ -3,7 +3,7 @@ package com.github.jengo.java.program.design10; /**
  * in a message dialog box.
  */
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class WelcomeInMessageDialogBox {
     public static void main(String[] args) {

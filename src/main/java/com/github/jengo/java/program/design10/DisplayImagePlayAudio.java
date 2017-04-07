@@ -1,6 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;

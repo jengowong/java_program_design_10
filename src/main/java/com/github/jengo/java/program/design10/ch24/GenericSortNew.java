@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class GenericSortNew {
     /** Sort an array of comparable objects */
@@ -32,7 +32,9 @@ public class GenericSortNew {
 
         sort(stringArray);
 
-        for (int i = 0; i < stringArray.length; i++)
-            System.out.print(stringArray[i] + " ");
+        for (String aStringArray : stringArray) {
+            System.out.print(aStringArray + " ");
+        }
     }
+
 }

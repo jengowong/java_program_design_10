@@ -1,9 +1,12 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
+import java.awt.BorderLayout;
 
 public class SimpleSpinner extends JApplet {
     // Create a JSpinner

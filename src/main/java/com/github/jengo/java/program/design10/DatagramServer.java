@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

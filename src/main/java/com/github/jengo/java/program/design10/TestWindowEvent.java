@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 

@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class SentinelValueUsingConfirmationDialog {
     public static void main(String[] args) {

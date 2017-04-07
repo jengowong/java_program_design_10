@@ -1,7 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.InputStream;

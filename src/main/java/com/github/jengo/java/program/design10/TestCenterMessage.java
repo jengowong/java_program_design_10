@@ -1,7 +1,11 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
 
 public class TestCenterMessage extends JFrame {
     public TestCenterMessage() {

@@ -1,9 +1,18 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.ListCellRenderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 public class ListCellRendererDemo extends JApplet {
     private final static int NUMBER_OF_NATIONS = 7;

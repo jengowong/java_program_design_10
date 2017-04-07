@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
 
 public class DisplayMessage extends JApplet {
     /** Initialize the applet */

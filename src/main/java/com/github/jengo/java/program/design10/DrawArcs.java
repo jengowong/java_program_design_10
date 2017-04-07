@@ -1,7 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Graphics;
 
 public class DrawArcs extends JFrame {
     public DrawArcs() {

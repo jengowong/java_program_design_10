@@ -1,7 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
 
 public class TextAreaDemo extends JFrame {
     // Declare and create a description panel

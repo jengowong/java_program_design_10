@@ -1,8 +1,11 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

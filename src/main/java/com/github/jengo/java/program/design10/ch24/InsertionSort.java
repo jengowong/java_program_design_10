@@ -1,6 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class InsertionSort {
+
     /** The method for sorting the numbers */
     public static void insertionSort(double[] list) {
         for (int i = 1; i < list.length; i++) {
@@ -16,4 +17,5 @@ public class InsertionSort {
             list[k + 1] = currentElement;
         }
     }
+
 }

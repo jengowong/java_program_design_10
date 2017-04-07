@@ -1,5 +1,7 @@
 package com.github.jengo.java.program.design10;
 
+import com.github.jengo.java.program.design10.ch24.Heap;
+
 public class MyPriorityQueue<E extends Comparable> {
     private Heap<E> heap = new Heap<E>();
 

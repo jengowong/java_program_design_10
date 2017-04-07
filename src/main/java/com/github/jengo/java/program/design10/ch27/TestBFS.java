@@ -1,14 +1,23 @@
 package com.github.jengo.java.program.design10.ch27;
 
-import com.github.jengo.java.program.design10.ch27.AbstractGraph;
-import com.github.jengo.java.program.design10.ch27.Graph;
-import com.github.jengo.java.program.design10.ch27.UnweightedGraph;
+import java.util.List;
 
 public class TestBFS {
+
     public static void main(String[] args) {
-        String[] vertices = {"Seattle", "San Francisco", "Los Angeles",
-                "Denver", "Kansas City", "Chicago", "Boston", "New York",
-                "Atlanta", "Miami", "Dallas", "Houston"};
+        String[] vertices = {
+                "Seattle",
+                "San Francisco",
+                "Los Angeles",
+                "Denver",
+                "Kansas City",
+                "Chicago",
+                "Boston",
+                "New York",
+                "Atlanta",
+                "Miami",
+                "Dallas",
+                "Houston"};
 
         int[][] edges = {
                 {0, 1}, {0, 3}, {0, 5},
@@ -25,19 +34,21 @@ public class TestBFS {
                 {11, 8}, {11, 9}, {11, 10}
         };
 
-        Graph<String> graph =
-                new UnweightedGraph<String>(edges, vertices);
+        Graph<String> graph = new UnweightedGraph<String>(edges, vertices);
         AbstractGraph<String>.Tree bfs = graph.bfs(5); // 5 is Chicago
 
-        java.util.List<Integer> searchOrders = bfs.getSearchOrders();
-        System.out.println(bfs.getNumberOfVerticesFound() +
-                " vertices are searched in this order:");
-        for (int i = 0; i < searchOrders.size(); i++)
+        List<Integer> searchOrders = bfs.getSearchOrders();
+        System.out.println(bfs.getNumberOfVerticesFound() + " vertices are searched in this order:");
+        for (int i = 0; i < searchOrders.size(); i++) {
             System.out.println(graph.getVertex(searchOrders.get(i)));
+        }
 
-        for (int i = 0; i < searchOrders.size(); i++)
-            if (bfs.getParent(i) != -1)
+        for (int i = 0; i < searchOrders.size(); i++) {
+            if (bfs.getParent(i) != -1) {
                 System.out.println("parent of " + graph.getVertex(i) +
                         " is " + graph.getVertex(bfs.getParent(i)));
+            }
+        }
     }
+
 }

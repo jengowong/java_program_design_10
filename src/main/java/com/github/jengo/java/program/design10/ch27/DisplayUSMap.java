@@ -2,7 +2,8 @@ package com.github.jengo.java.program.design10.ch27;
 
 import com.github.jengo.java.program.design10.Displayable;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
 
 public class DisplayUSMap extends JApplet {
     private City[] vertices = {new City("Seattle", 75, 50),

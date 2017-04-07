@@ -1,6 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;

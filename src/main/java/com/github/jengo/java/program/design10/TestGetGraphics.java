@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Graphics;
 
 public class TestGetGraphics extends JFrame {
     private JLabel jlblBanner = new JLabel("Banner");

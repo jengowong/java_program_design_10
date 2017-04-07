@@ -1,10 +1,16 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 
 public class TestSwingCommonFeatures extends JFrame {
     public TestSwingCommonFeatures() {

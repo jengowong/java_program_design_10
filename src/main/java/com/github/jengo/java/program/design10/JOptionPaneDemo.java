@@ -1,6 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class JOptionPaneDemo {
     public static void main(String args[]) {

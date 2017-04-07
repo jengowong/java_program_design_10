@@ -1,7 +1,9 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
 
 public class DisplayFigure extends JApplet {
     private JTabbedPane jtpFigures = new JTabbedPane();

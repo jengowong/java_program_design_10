@@ -2,8 +2,18 @@ package com.github.jengo.java.program.design10;
 
 import com.sun.rowset.CachedRowSetImpl;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

@@ -1,6 +1,6 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

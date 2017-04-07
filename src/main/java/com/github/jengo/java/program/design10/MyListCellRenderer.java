@@ -1,8 +1,13 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
 
 public class MyListCellRenderer implements ListCellRenderer {
     private JLabel jlblCell = new JLabel(" ", JLabel.LEFT);

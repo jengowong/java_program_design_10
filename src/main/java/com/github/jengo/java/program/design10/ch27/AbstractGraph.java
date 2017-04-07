@@ -1,7 +1,5 @@
 package com.github.jengo.java.program.design10.ch27;
 
-import com.github.jengo.java.program.design10.ch27.Graph;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

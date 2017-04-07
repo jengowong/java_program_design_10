@@ -1,7 +1,10 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JSplitPane;
+import java.awt.BorderLayout;
 
 public class JSplitPaneDemo extends JApplet {
     public JSplitPaneDemo() {

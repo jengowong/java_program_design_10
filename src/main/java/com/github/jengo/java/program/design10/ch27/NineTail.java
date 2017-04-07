@@ -1,7 +1,5 @@
 package com.github.jengo.java.program.design10.ch27;
 
-import com.github.jengo.java.program.design10.ch27.NineTailModel;
-
 import java.util.Scanner;
 
 public class NineTail {

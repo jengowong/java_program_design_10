@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class HeapSort {
     /** Heap sort method */
@@ -7,23 +7,23 @@ public class HeapSort {
         Heap<E> heap = new Heap<E>();
 
         // Add elements to the heap
-        for (int i = 0; i < list.length; i++)
+        for (int i = 0; i < list.length; i++) {
             heap.add(list[i]);
+        }
 
         // Remove elements from the heap
-        for (int i = list.length - 1; i >= 0; i--)
+        for (int i = list.length - 1; i >= 0; i--) {
             list[i] = heap.remove();
+        }
     }
 
     /** A test method */
     public static void main(String[] args) {
         Integer[] list = {2, 3, 2, 5, 6, 1, -2, 3, 14, 12};
         heapSort(list);
-        for (int i = 0; i < list.length; i++)
-            System.out.print(list[i] + " ");
+        for (Integer aList : list) {
+            System.out.print(aList + " ");
+        }
     }
+
 }
-
-
-
-

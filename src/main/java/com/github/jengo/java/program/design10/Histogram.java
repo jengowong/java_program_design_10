@@ -1,7 +1,8 @@
 package com.github.jengo.java.program.design10;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 public class Histogram extends JPanel {
     // Count the occurrence of 26 letters

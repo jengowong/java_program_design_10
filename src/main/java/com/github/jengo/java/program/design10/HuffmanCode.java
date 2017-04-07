@@ -1,5 +1,7 @@
 package com.github.jengo.java.program.design10;
 
+import com.github.jengo.java.program.design10.ch24.Heap;
+
 import java.util.Scanner;
 
 public class HuffmanCode {

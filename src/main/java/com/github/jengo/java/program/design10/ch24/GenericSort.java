@@ -1,18 +1,15 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch24;
 
 public class GenericSort {
     public static void main(String[] args) {
         // Create an Integer array
-        Integer[] intArray = {new Integer(2), new Integer(4),
-                new Integer(3)};
+        Integer[] intArray = {new Integer(2), new Integer(4), new Integer(3)};
 
         // Create a Double array
-        Double[] doubleArray = {new Double(3.4), new Double(1.3),
-                new Double(-22.1)};
+        Double[] doubleArray = {new Double(3.4), new Double(1.3), new Double(-22.1)};
 
         // Create a Character array
-        Character[] charArray = {new Character('a'),
-                new Character('J'), new Character('r')};
+        Character[] charArray = {new Character('a'), new Character('J'), new Character('r')};
 
         // Create a String array
         String[] stringArray = {"Tom", "John", "Fred"};
@@ -61,8 +58,10 @@ public class GenericSort {
 
     /** Print an array of objects */
     public static void printList(Object[] list) {
-        for (int i = 0; i < list.length; i++)
-            System.out.print(list[i] + " ");
+        for (Object aList : list) {
+            System.out.print(aList + " ");
+        }
         System.out.println();
     }
+
 }
