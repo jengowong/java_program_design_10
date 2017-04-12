@@ -1,9 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ExecutorDemo {
+
     public static void main(String[] args) {
         // Create a fixed thread pool with maximum three threads
         ExecutorService executor = Executors.newFixedThreadPool(3);
@@ -16,4 +17,5 @@ public class ExecutorDemo {
         // Shut down the executor
         executor.shutdown();
     }
+
 }

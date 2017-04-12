@@ -1,11 +1,11 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
 public class TaskThreadDemo {
     public static void main(String[] args) {
         // Create tasks
-        Runnable printA = new PrintChar('a', 100);
-        Runnable printB = new PrintChar('b', 100);
-        Runnable print100 = new PrintNum(100);
+        Runnable printA = new PrintChar('a', 10000);
+        Runnable printB = new PrintChar('b', 10000);
+        Runnable print100 = new PrintNum(10000);
 
         // Create threads
         Thread thread1 = new Thread(printA);
@@ -18,6 +18,7 @@ public class TaskThreadDemo {
         thread3.start();
     }
 }
+
 
 // The task for printing a specified character in specified times
 class PrintChar implements Runnable {
@@ -43,6 +44,7 @@ class PrintChar implements Runnable {
         }
     }
 }
+
 
 // The task class for printing number from 1 to n for a given n
 class PrintNum implements Runnable {
