@@ -1,5 +1,6 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
+import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
@@ -7,6 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConsumerProducer {
+
     private static Buffer buffer = new Buffer();
 
     public static void main(String[] args) {
@@ -19,6 +21,7 @@ public class ConsumerProducer {
 
     // A task for adding an int to the buffer
     private static class ProducerTask implements Runnable {
+        @Override
         public void run() {
             try {
                 int i = 1;
@@ -36,6 +39,7 @@ public class ConsumerProducer {
 
     // A task for reading and deleting an int from the buffer
     private static class ConsumerTask implements Runnable {
+        @Override
         public void run() {
             try {
                 while (true) {
@@ -52,8 +56,7 @@ public class ConsumerProducer {
     // An inner class for buffer
     private static class Buffer {
         private static final int CAPACITY = 1; // buffer size
-        private java.util.LinkedList<Integer> queue =
-                new java.util.LinkedList<Integer>();
+        private LinkedList<Integer> queue = new LinkedList<Integer>();
 
         // Create a new lock
         private static Lock lock = new ReentrantLock();
@@ -69,7 +72,6 @@ public class ConsumerProducer {
                     System.out.println("Wait for notFull condition");
                     notFull.await();
                 }
-
                 queue.offer(value);
                 notEmpty.signal(); // Signal notEmpty condition
             } catch (InterruptedException ex) {
@@ -87,7 +89,6 @@ public class ConsumerProducer {
                     System.out.println("\t\t\tWait for notEmpty condition");
                     notEmpty.await();
                 }
-
                 value = queue.remove();
                 notFull.signal(); // Signal notFull condition
             } catch (InterruptedException ex) {

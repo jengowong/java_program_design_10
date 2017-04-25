@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -6,6 +6,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class AccountWithSyncUsingLock {
+
     private static Account account = new Account();
 
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class AccountWithSyncUsingLock {
 
         // Wait until all tasks are finished
         while (!executor.isTerminated()) {
+            System.out.println("executor is not terminated!");
         }
 
         System.out.println("What is balance ? " + account.getBalance());
@@ -27,6 +29,7 @@ public class AccountWithSyncUsingLock {
 
     // A thread for adding a penny to the account
     public static class AddAPennyTask implements Runnable {
+        @Override
         public void run() {
             account.deposit(1);
         }
@@ -53,9 +56,11 @@ public class AccountWithSyncUsingLock {
 
                 balance = newBalance;
             } catch (InterruptedException ex) {
+                ex.printStackTrace();
             } finally {
                 lock.unlock(); // Release the lock
             }
         }
     }
+
 }

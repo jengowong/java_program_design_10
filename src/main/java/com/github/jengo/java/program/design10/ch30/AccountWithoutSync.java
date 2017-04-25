@@ -1,9 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class AccountWithoutSync {
+
     private static Account account = new Account();
 
     public static void main(String[] args) {
@@ -18,6 +19,7 @@ public class AccountWithoutSync {
 
         // Wait until all tasks are finished
         while (!executor.isTerminated()) {
+            System.out.println("executor is not terminated!");
         }
 
         System.out.println("What is balance? " + account.getBalance());
@@ -25,6 +27,7 @@ public class AccountWithoutSync {
 
     // A thread for adding a penny to the account
     private static class AddAPennyTask implements Runnable {
+        @Override
         public void run() {
             account.deposit(1);
         }
@@ -46,9 +49,11 @@ public class AccountWithoutSync {
             try {
                 Thread.sleep(5);
             } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
 
             balance = newBalance;
         }
     }
+
 }

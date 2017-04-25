@@ -1,12 +1,11 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch30;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ConsumerProducerUsingBlockingQueue {
-    private static ArrayBlockingQueue<Integer> buffer =
-            new ArrayBlockingQueue<Integer>(2);
+    private static ArrayBlockingQueue<Integer> buffer = new ArrayBlockingQueue<Integer>(2);
 
     public static void main(String[] args) {
         // Create a thread pool with two threads
