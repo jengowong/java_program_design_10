@@ -1,21 +1,29 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
-    /** Create a default AVL tree */
+    /**
+     * Create a default AVL tree
+     */
     public AVLTree() {
     }
 
-    /** Create an AVL tree from an array of objects */
+    /**
+     * Create an AVL tree from an array of objects
+     */
     public AVLTree(E[] objects) {
         super(objects);
     }
 
-    /** Override createNewNode to create an AVLTreeNode */
+    /**
+     * Override createNewNode to create an AVLTreeNode
+     */
     protected AVLTreeNode<E> createNewNode(E o) {
         return new AVLTreeNode<E>(o);
     }
 
-    /** Override the insert method to balance the tree if necessary */
+    /**
+     * Override the insert method to balance the tree if necessary
+     */
     public boolean insert(E o) {
         boolean successful = super.insert(o);
         if (!successful)
@@ -23,22 +31,24 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         else {
             balancePath(o); // Balance from o to the root if necessary
         }
-
         return true; // o is inserted
     }
 
-    /** Update the height of a specified node */
+    /**
+     * Update the height of a specified node
+     */
     private void updateHeight(AVLTreeNode<E> node) {
-        if (node.left == null && node.right == null) // node is a leaf
+        if (node.left == null && node.right == null) { // node is a leaf
             node.height = 0;
-        else if (node.left == null) // node has no left subtree
+        } else if (node.left == null) { // node has no left subtree
             node.height = 1 + ((AVLTreeNode<E>) (node.right)).height;
-        else if (node.right == null) // node has no right subtree
+        } else if (node.right == null) { // node has no right subtree
             node.height = 1 + ((AVLTreeNode<E>) (node.left)).height;
-        else
-            node.height = 1 +
-                    Math.max(((AVLTreeNode<E>) (node.right)).height,
-                            ((AVLTreeNode<E>) (node.left)).height);
+        } else {
+            node.height = 1 + Math.max(
+                    ((AVLTreeNode<E>) (node.right)).height,
+                    ((AVLTreeNode<E>) (node.left)).height);
+        }
     }
 
     /**
@@ -50,8 +60,7 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         for (int i = path.size() - 1; i >= 0; i--) {
             AVLTreeNode<E> A = (AVLTreeNode<E>) (path.get(i));
             updateHeight(A);
-            AVLTreeNode<E> parentOfA = (A == root) ? null :
-                    (AVLTreeNode<E>) (path.get(i - 1));
+            AVLTreeNode<E> parentOfA = (A == root) ? null : (AVLTreeNode<E>) (path.get(i - 1));
 
             switch (balanceFactor(A)) {
                 case -2:
@@ -71,18 +80,22 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         }
     }
 
-    /** Return the balance factor of the node */
+    /**
+     * Return the balance factor of the node
+     */
     private int balanceFactor(AVLTreeNode<E> node) {
-        if (node.right == null) // node has no right subtree
+        if (node.right == null) { // node has no right subtree
             return -node.height;
-        else if (node.left == null) // node has no left subtree
+        } else if (node.left == null) { // node has no left subtree
             return +node.height;
-        else
-            return ((AVLTreeNode<E>) node.right).height -
-                    ((AVLTreeNode<E>) node.left).height;
+        } else {
+            return ((AVLTreeNode<E>) node.right).height - ((AVLTreeNode<E>) node.left).height;
+        }
     }
 
-    /** Balance LL (see Figure 9.1) */
+    /**
+     * Balance LL (see Figure 9.1)
+     */
     private void balanceLL(TreeNode<E> A, TreeNode<E> parentOfA) {
         TreeNode<E> B = A.left; // A is left-heavy and B is left-heavy
 
@@ -102,7 +115,9 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         updateHeight((AVLTreeNode<E>) B);
     }
 
-    /** Balance LR (see Figure 9.1(c)) */
+    /**
+     * Balance LR (see Figure 9.1(c))
+     */
     private void balanceLR(TreeNode<E> A, TreeNode<E> parentOfA) {
         TreeNode<E> B = A.left; // A is left-heavy
         TreeNode<E> C = B.right; // B is right-heavy
@@ -128,7 +143,9 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         updateHeight((AVLTreeNode<E>) C);
     }
 
-    /** Balance RR (see Figure 9.1(b)) */
+    /**
+     * Balance RR (see Figure 9.1(b))
+     */
     private void balanceRR(TreeNode<E> A, TreeNode<E> parentOfA) {
         TreeNode<E> B = A.right; // A is right-heavy and B is right-heavy
 
@@ -148,7 +165,9 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         updateHeight((AVLTreeNode<E>) B);
     }
 
-    /** Balance RL (see Figure 9.1(d)) */
+    /**
+     * Balance RL (see Figure 9.1(d))
+     */
     private void balanceRL(TreeNode<E> A, TreeNode<E> parentOfA) {
         TreeNode<E> B = A.right; // A is right-heavy
         TreeNode<E> C = B.left; // B is left-heavy
@@ -180,8 +199,9 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
      * Return false if the element is not in the tree
      */
     public boolean delete(E element) {
-        if (root == null)
+        if (root == null) {
             return false; // Element is not in the tree
+        }
 
         // Locate the node to be deleted and also locate its parent node
         TreeNode<E> parent = null;
@@ -193,12 +213,14 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
             } else if (element.compareTo(current.element) > 0) {
                 parent = current;
                 current = current.right;
-            } else
+            } else {
                 break; // Element is in the tree pointed by current
+            }
         }
 
-        if (current == null)
+        if (current == null) {
             return false; // Element is not in the tree
+        }
 
         // Case 1: current has no left children (See Figure 23.6)
         if (current.left == null) {
@@ -206,10 +228,11 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
             if (parent == null) {
                 root = current.right;
             } else {
-                if (element.compareTo(parent.element) < 0)
+                if (element.compareTo(parent.element) < 0) {
                     parent.left = current.right;
-                else
+                } else {
                     parent.right = current.right;
+                }
 
                 // Balance the tree if necessary
                 balancePath(parent.element);
@@ -230,11 +253,12 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
             current.element = rightMost.element;
 
             // Eliminate rightmost node
-            if (parentOfRightMost.right == rightMost)
+            if (parentOfRightMost.right == rightMost) {
                 parentOfRightMost.right = rightMost.left;
-            else
+            } else {
                 // Special case: parentOfRightMost is current
                 parentOfRightMost.left = rightMost.left;
+            }
 
             // Balance the tree if necessary
             balancePath(parentOfRightMost.element);
@@ -244,13 +268,16 @@ public class AVLTree<E extends Comparable<E>> extends BinaryTree<E> {
         return true; // Element inserted
     }
 
-    /** AVLTreeNode is TreeNode plus height */
-    protected static class AVLTreeNode<E extends Comparable<E>>
-            extends BinaryTree.TreeNode<E> {
+
+    /**
+     * AVLTreeNode is TreeNode plus height
+     */
+    protected static class AVLTreeNode<E extends Comparable<E>> extends BinaryTree.TreeNode<E> {
         int height = 0; // New data field
 
         public AVLTreeNode(E o) {
             super(o);
         }
     }
+
 }

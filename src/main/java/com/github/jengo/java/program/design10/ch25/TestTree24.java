@@ -1,6 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class TestTree24 {
+
     public static void main(String[] args) {
         // Create a 2-4 tree
         Tree24<Integer> tree = new Tree24<Integer>();
@@ -56,4 +57,5 @@ public class TestTree24 {
         System.out.print("\nThe number of nodes is " + tree.getSize());
         System.out.println();
     }
+
 }

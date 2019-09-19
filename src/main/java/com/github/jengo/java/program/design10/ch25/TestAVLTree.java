@@ -1,10 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class TestAVLTree {
+
     public static void main(String[] args) {
         // Create an AVL tree
-        AVLTree<Integer> tree = new AVLTree<Integer>(new Integer[]{25,
-                20, 5});
+        AVLTree<Integer> tree = new AVLTree<Integer>(new Integer[]{25, 20, 5});
         System.out.print("After inserting 25, 20, 5:");
         printTree(tree);
 
@@ -43,4 +43,5 @@ public class TestAVLTree {
         System.out.print("\nThe number of nodes is " + tree.getSize());
         System.out.println();
     }
+
 }

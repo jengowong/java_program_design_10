@@ -1,6 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class TestBinaryTreeWithIterator {
+
     public static void main(String[] args) {
         BinaryTree<String> tree = new BinaryTree<String>();
         tree.insert("George");
@@ -16,4 +17,5 @@ public class TestBinaryTreeWithIterator {
             System.out.println(((String) (iterator.next())).toUpperCase());
         }
     }
+
 }

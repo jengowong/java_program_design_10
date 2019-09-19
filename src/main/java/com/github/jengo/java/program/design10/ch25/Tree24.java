@@ -1,8 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Tree24<E extends Comparable<E>> implements Tree<E> {
+
     private Tree24Node<E> root;
     private int size;
 
@@ -10,17 +12,24 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         return root;
     }
 
-    /** Create a default 2-4 tree */
+    /**
+     * Create a default 2-4 tree
+     */
     public Tree24() {
     }
 
-    /** Create a 2-4 tree from an array of objects */
+    /**
+     * Create a 2-4 tree from an array of objects
+     */
     public Tree24(E[] elements) {
-        for (int i = 0; i < elements.length; i++)
+        for (int i = 0; i < elements.length; i++) {
             insert(elements[i]);
+        }
     }
 
-    /** Search an element in the tree */
+    /**
+     * Search an element in the tree
+     */
     public boolean search(E e) {
         Tree24Node<E> current = root; // Start from the root
 
@@ -31,24 +40,28 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
                 current = getChildNode(e, current); // Search in a subtree
             }
         }
-
         return false; // Element is not in the tree
     }
 
-    /** Return true if the element is found in this node */
+    /**
+     * Return true if the element is found in this node
+     */
     private boolean matched(E e, Tree24Node<E> node) {
-        for (int i = 0; i < node.elements.size(); i++)
-            if (node.elements.get(i).equals(e))
+        for (int i = 0; i < node.elements.size(); i++) {
+            if (node.elements.get(i).equals(e)) {
                 return true; // Element found
-
+            }
+        }
         return false; // No match in this node
     }
 
-    /** Locate a child node to search element e */
+    /**
+     * Locate a child node to search element e
+     */
     private Tree24Node<E> getChildNode(E e, Tree24Node<E> node) {
-        if (node.child.size() == 0)
+        if (node.child.size() == 0) {
             return null; // node is a leaf
-
+        }
         int i = locate(e, node); // Locate the insertion point for e
         return node.child.get(i); // Return the child node
     }
@@ -58,30 +71,32 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
      * Return true if the element is inserted successfully
      */
     public boolean insert(E e) {
-        if (root == null)
+        if (root == null) {
             root = new Tree24Node<E>(e); // Create a new root for element
-        else {
+        } else {
             // Locate the leaf node for inserting e
             Tree24Node<E> leafNode = null;
             Tree24Node<E> current = root;
-            while (current != null)
+            while (current != null) {
                 if (matched(e, current)) {
                     return false; // Duplicate element found, nothing inserted
                 } else {
                     leafNode = current;
                     current = getChildNode(e, current);
                 }
-
+            }
             // Insert the element e into the leaf node
             insert(e, null, leafNode); // The right child of e is null
         }
-
         size++; // Increase size
         return true; // Element inserted
     }
 
-    /** Insert element e into node u */
-    private void insert(E e, Tree24Node<E> rightChildOfe,
+    /**
+     * Insert element e into node u
+     */
+    private void insert(E e,
+                        Tree24Node<E> rightChildOfe,
                         Tree24Node<E> u) {
         // Get the search path that leads to element e
         ArrayList<Tree24Node<E>> path = path(e);
@@ -109,18 +124,26 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         }
     }
 
-    /** Insert element to a 2- or 3- and return the insertion point */
-    private void insert23(E e, Tree24Node<E> rightChildOfe,
+    /**
+     * Insert element to a 2- or 3- and return the insertion point
+     */
+    private void insert23(E e,
+                          Tree24Node<E> rightChildOfe,
                           Tree24Node<E> node) {
         int i = this.locate(e, node); // Locate where to insert
         node.elements.add(i, e); // Insert the element into the node
-        if (rightChildOfe != null)
+        if (rightChildOfe != null) {
             node.child.add(i + 1, rightChildOfe); // Insert the child link
+        }
     }
 
-    /** Split a 4-node u into u and v and insert e to u or v */
-    private E split(E e, Tree24Node<E> rightChildOfe,
-                    Tree24Node<E> u, Tree24Node<E> v) {
+    /**
+     * Split a 4-node u into u and v and insert e to u or v
+     */
+    private E split(E e,
+                    Tree24Node<E> rightChildOfe,
+                    Tree24Node<E> u,
+                    Tree24Node<E> v) {
         // Move the last element in node u to node v
         v.elements.add(u.elements.remove(2));
         E median = u.elements.remove(1);
@@ -133,15 +156,18 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         }
 
         // Insert e into a 2- or 3- node u or v.
-        if (e.compareTo(median) < 0)
+        if (e.compareTo(median) < 0) {
             insert23(e, rightChildOfe, u);
-        else
+        } else {
             insert23(e, rightChildOfe, v);
+        }
 
         return median; // Return the median element
     }
 
-    /** Return a search path that leads to element e */
+    /**
+     * Return a search path that leads to element e
+     */
     private ArrayList<Tree24Node<E>> path(E e) {
         ArrayList<Tree24Node<E>> list = new ArrayList<Tree24Node<E>>();
         Tree24Node<E> current = root; // Start from the root
@@ -154,15 +180,16 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
                 current = getChildNode(e, current);
             }
         }
-
         return list; // Return an array of nodes
     }
 
-    /** Delete the specified element from the tree */
+    /**
+     * Delete the specified element from the tree
+     */
     public boolean delete(E e) {
         // Locate the node that contains the element e
         Tree24Node<E> node = root;
-        while (node != null)
+        while (node != null) {
             if (matched(e, node)) {
                 delete(e, node); // Delete element e from node
                 size--; // After one element deleted
@@ -170,24 +197,24 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
             } else {
                 node = getChildNode(e, node);
             }
-
+        }
         return false; // Element not in the tree
     }
 
-    /** Delete the specified element from the node */
-    private void delete(E e, Tree24Node<E> node) {
+    /**
+     * Delete the specified element from the node
+     */
+    private void delete(E e,
+                        Tree24Node<E> node) {
         if (node.child.size() == 0) { // e is in a leaf node
             // Get the path that leads to e from the root
             ArrayList<Tree24Node<E>> path = path(e);
-
             node.elements.remove(e); // Remove element e
-
             if (node == root) { // Special case
                 if (node.elements.size() == 0)
                     root = null; // Empty tree
                 return; // Done
             }
-
             validate(e, node, path); // Check underflow node
         } else { // e is in an internal node
             // Locate the rightmost node in the left subtree of the node
@@ -196,22 +223,23 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
             while (current.child.size() > 0) {
                 current = current.child.get(current.child.size() - 1);
             }
-            E rightmostElement =
-                    current.elements.get(current.elements.size() - 1);
+            E rightmostElement = current.elements.get(current.elements.size() - 1);
 
             // Get the path that leads to e from the root
             ArrayList<Tree24Node<E>> path = path(rightmostElement);
 
             // Replace the deleted element with the rightmost element
-            node.elements.set(index, current.elements.remove(
-                    current.elements.size() - 1));
+            node.elements.set(index, current.elements.remove(current.elements.size() - 1));
 
             validate(rightmostElement, current, path); // Check underflow
         }
     }
 
-    /** Perform transfer and confusion operations if necessary */
-    private void validate(E e, Tree24Node<E> u,
+    /**
+     * Perform transfer and confusion operations if necessary
+     */
+    private void validate(E e,
+                          Tree24Node<E> u,
                           ArrayList<Tree24Node<E>> path) {
         for (int i = path.size() - 1; u.elements.size() == 0; i--) {
             Tree24Node<E> parentOfu = path.get(i - 1); // Get parent of u
@@ -220,8 +248,8 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
             // Check two siblings
             if (k > 0 && parentOfu.child.get(k - 1).elements.size() > 1) {
                 leftSiblingTransfer(k, u, parentOfu);
-            } else if (k + 1 < parentOfu.child.size() &&
-                    parentOfu.child.get(k + 1).elements.size() > 1) {
+            } else if (k + 1 < parentOfu.child.size()
+                    && parentOfu.child.get(k + 1).elements.size() > 1) {
                 rightSiblingTransfer(k, u, parentOfu);
             } else if (k - 1 >= 0) { // Fusion with a left sibling
                 // Get left sibling of node u
@@ -235,7 +263,6 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
                     root = leftNode;
                     break;
                 }
-
                 u = parentOfu; // Back to the loop to check the parent node
             } else { // Fusion with right sibling (right sibling must exist)
                 // Get left sibling of node u
@@ -249,43 +276,48 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
                     root = rightNode;
                     break;
                 }
-
                 u = parentOfu; // Back to the loop to check the parent node
             }
         }
     }
 
-    /** Locate the insertion point of the element in the node */
+    /**
+     * Locate the insertion point of the element in the node
+     */
     private int locate(E o, Tree24Node<E> node) {
         for (int i = 0; i < node.elements.size(); i++) {
             if (o.compareTo(node.elements.get(i)) <= 0) {
                 return i;
             }
         }
-
         return node.elements.size();
     }
 
-    /** Perform a transfer with a left sibling */
+    /**
+     * Perform a transfer with a left sibling
+     */
     private void leftSiblingTransfer(int k,
-                                     Tree24Node<E> u, Tree24Node<E> parentOfu) {
+                                     Tree24Node<E> u,
+                                     Tree24Node<E> parentOfu) {
         // Move an element from the parent to u
         u.elements.add(0, parentOfu.elements.get(k - 1));
 
         // Move an element from the left node to the parent
         Tree24Node<E> leftNode = parentOfu.child.get(k - 1);
-        parentOfu.elements.set(k - 1,
-                leftNode.elements.remove(leftNode.elements.size() - 1));
+        parentOfu.elements.set(k - 1, leftNode.elements.remove(leftNode.elements.size() - 1));
 
         // Move the child link from left sibling to the node
-        if (leftNode.child.size() > 0)
-            u.child.add(0, leftNode.child.remove(
-                    leftNode.child.size() - 1));
+        if (leftNode.child.size() > 0) {
+            u.child.add(0, leftNode.child.remove(leftNode.child.size() - 1));
+        }
     }
 
-    /** Perform a transfer with a right sibling */
+    /**
+     * Perform a transfer with a right sibling
+     */
     private void rightSiblingTransfer(int k,
-                                      Tree24Node<E> u, Tree24Node<E> parentOfu) {
+                                      Tree24Node<E> u,
+                                      Tree24Node<E> parentOfu) {
         // Transfer an element from the parent to u
         u.elements.add(parentOfu.elements.get(k));
 
@@ -294,13 +326,18 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         parentOfu.elements.set(k, rightNode.elements.remove(0));
 
         // Move the child link from right sibling to the node
-        if (rightNode.child.size() > 0)
+        if (rightNode.child.size() > 0) {
             u.child.add(rightNode.child.remove(0));
+        }
     }
 
-    /** Perform a fusion with a left sibling */
-    private void leftSiblingFusion(int k, Tree24Node<E> leftNode,
-                                   Tree24Node<E> u, Tree24Node<E> parentOfu) {
+    /**
+     * Perform a fusion with a left sibling
+     */
+    private void leftSiblingFusion(int k,
+                                   Tree24Node<E> leftNode,
+                                   Tree24Node<E> u,
+                                   Tree24Node<E> parentOfu) {
         // Transfer an element from the parent to the left sibling
         leftNode.elements.add(parentOfu.elements.remove(k - 1));
 
@@ -308,13 +345,18 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         parentOfu.child.remove(k);
 
         // Adjust child links for non-leaf node
-        if (u.child.size() > 0)
+        if (u.child.size() > 0) {
             leftNode.child.add(u.child.remove(0));
+        }
     }
 
-    /** Perform a fusion with a right sibling */
-    private void rightSiblingFusion(int k, Tree24Node<E> rightNode,
-                                    Tree24Node<E> u, Tree24Node<E> parentOfu) {
+    /**
+     * Perform a fusion with a right sibling
+     */
+    private void rightSiblingFusion(int k,
+                                    Tree24Node<E> rightNode,
+                                    Tree24Node<E> u,
+                                    Tree24Node<E> parentOfu) {
         // Transfer an element from the parent to the right sibling
         rightNode.elements.add(0, parentOfu.elements.remove(k));
 
@@ -322,66 +364,90 @@ public class Tree24<E extends Comparable<E>> implements Tree<E> {
         parentOfu.child.remove(k);
 
         // Adjust child links for non-leaf node
-        if (u.child.size() > 0)
+        if (u.child.size() > 0) {
             rightNode.child.add(0, u.child.remove(0));
+        }
     }
 
-    /** Get the number of nodes in the tree */
+    /**
+     * Get the number of nodes in the tree
+     */
     public int getSize() {
         return size;
     }
 
-    /** Preorder traversal from the root */
+    /**
+     * Preorder traversal from the root
+     */
     public void preorder() {
         preorder(root);
     }
 
-    /** Preorder traversal from a subtree */
+    /**
+     * Preorder traversal from a subtree
+     */
     private void preorder(Tree24Node<E> root) {
         if (root == null) return;
-        for (int i = 0; i < root.elements.size(); i++)
+        for (int i = 0; i < root.elements.size(); i++) {
             System.out.print(root.elements.get(i) + " ");
+        }
 
-        for (int i = 0; i < root.child.size(); i++)
+        for (int i = 0; i < root.child.size(); i++) {
             preorder(root.child.get(i));
+        }
     }
 
-    /** Inorder traversal from the root */
+    /**
+     * Inorder traversal from the root
+     */
     public void inorder() {
         // Left as exercise
     }
 
-    /** Postorder traversal from the root */
+    /**
+     * Postorder traversal from the root
+     */
     public void postorder() {
         // Left as exercise
     }
 
-    /** Return true if the tree is empty */
+    /**
+     * Return true if the tree is empty
+     */
     public boolean isEmpty() {
         return root == null;
     }
 
-    /** Return an iterator to traverse elements in the tree */
-    public java.util.Iterator iterator() {
+    /**
+     * Return an iterator to traverse elements in the tree
+     */
+    public Iterator iterator() {
         // Left as exercise
         return null;
     }
 
-    /** Define a 2-4 tree node */
+
+    /**
+     * Define a 2-4 tree node
+     */
     protected static class Tree24Node<E extends Comparable<E>> {
         // elements has maximum three values
         ArrayList<E> elements = new ArrayList<E>(3);
         // Each has maximum four childres
-        ArrayList<Tree24Node<E>> child
-                = new ArrayList<Tree24Node<E>>(4);
+        ArrayList<Tree24Node<E>> child = new ArrayList<Tree24Node<E>>(4);
 
-        /** Create an empty Tree24 node */
+        /**
+         * Create an empty Tree24 node
+         */
         Tree24Node() {
         }
 
-        /** Create a Tree24 node with an initial element */
+        /**
+         * Create a Tree24 node with an initial element
+         */
         Tree24Node(E o) {
             elements.add(o);
         }
     }
+
 }

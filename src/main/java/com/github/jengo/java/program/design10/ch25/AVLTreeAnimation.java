@@ -1,4 +1,4 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 import javax.swing.JApplet;
 import javax.swing.JButton;
@@ -18,20 +18,22 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 public class AVLTreeAnimation extends JApplet {
+
     private AVLTree<Integer> tree = new AVLTree<Integer>();
     private AVLTree<Integer> treeCopy;
 
     public AVLTreeAnimation() {
- /*   tree.insert(50);
-    tree.insert(25);
-    tree.insert(75);
-    tree.insert(12);
-    tree.insert(30);
-    tree.insert(70);
-    tree.insert(80);
-    tree.insert(110);
-    tree.insert(10); 
-    */
+        /*
+        tree.insert(50);
+        tree.insert(25);
+        tree.insert(75);
+        tree.insert(12);
+        tree.insert(30);
+        tree.insert(70);
+        tree.insert(80);
+        tree.insert(110);
+        tree.insert(10);
+        */
         setUI();
     }
 
@@ -64,6 +66,7 @@ public class AVLTreeAnimation extends JApplet {
         add(panel, BorderLayout.SOUTH);
 
         jbtSearch.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 int key = Integer.parseInt(jtfKey.getText());
                 if (!tree.search(key)) {
@@ -78,6 +81,7 @@ public class AVLTreeAnimation extends JApplet {
         });
 
         jbtInsert.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 int key = Integer.parseInt(jtfKey.getText());
                 if (tree.search(key)) {
@@ -93,6 +97,7 @@ public class AVLTreeAnimation extends JApplet {
         });
 
         jbtDelete.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 int key = Integer.parseInt(jtfKey.getText());
                 if (!tree.search(key)) {
@@ -113,8 +118,7 @@ public class AVLTreeAnimation extends JApplet {
     AnimationRotationAfterDeletion deleteAnimation = new AnimationRotationAfterDeletion(null);
     Timer timerForDelete = new Timer(500, deleteAnimation);
 
-    protected ArrayList<AVLTree.TreeNode<Integer>> paths =
-            new ArrayList<AVLTree.TreeNode<Integer>>();
+    protected ArrayList<AVLTree.TreeNode<Integer>> paths = new ArrayList<AVLTree.TreeNode<Integer>>();
 
     class AnimationListener implements ActionListener {
         int mode = 0; // 0 for search, 1 for insert, and 2 for delete
@@ -126,9 +130,9 @@ public class AVLTreeAnimation extends JApplet {
         }
 
         public void actionPerformed(ActionEvent e) {
-            if (!paths.isEmpty())
+            if (!paths.isEmpty()) {
                 paintTree.setOfHighlightedNodes.add(paths.remove(0));
-            else {
+            } else {
                 timer.stop();
                 if (mode == 1) {
                     tree.justInsert(key);
@@ -139,7 +143,6 @@ public class AVLTreeAnimation extends JApplet {
                     timerForDelete.start();
                 }
             }
-
             paintTree.repaint();
         }
     }
@@ -159,25 +162,27 @@ public class AVLTreeAnimation extends JApplet {
             this.key = key;
             set2 = tree.findImbalanceSubtree(key);
 
-            if (set2.size() == 0)
+            if (set2.size() == 0) {
                 count = 16;
+            }
         }
 
         public void actionPerformed(ActionEvent e) {
             if (count++ <= 15) {
-                if (count % 2 == 0)
+                if (count % 2 == 0) {
                     paintTree.setOfHighlightedNodes = set2;
-                else
+                } else {
                     paintTree.setOfHighlightedNodes = set1;
+                }
             } else {
                 timer.stop();
                 tree = treeCopy;
                 tree.insert(key);
             }
-
             paintTree.repaint();
         }
     }
+
 
     class AnimationRotationAfterDeletion implements ActionListener {
         int mode = 0; // 0 for search, 1 for insert, and 2 for delete
@@ -193,10 +198,11 @@ public class AVLTreeAnimation extends JApplet {
             tree.justDelete(key);
             set2 = tree.findImbalanceSubtreeForDeletion(startingElement);
 
-            if (set2.size() == 0)
+            if (set2.size() == 0) {
                 count = 16;
-            else
+            } else {
                 count = 0;
+            }
         }
 
         public AnimationRotationAfterDeletion(Integer key) {
@@ -205,23 +211,23 @@ public class AVLTreeAnimation extends JApplet {
 
         public void actionPerformed(ActionEvent e) {
             if (count++ <= 15) {
-                if (count % 2 == 0)
+                if (count % 2 == 0) {
                     paintTree.setOfHighlightedNodes = set2;
-                else
+                } else {
                     paintTree.setOfHighlightedNodes = set1;
+                }
             } else {
                 timerForDelete.stop();
                 tree = treeCopy;
                 tree.delete(key);
             }
-
             paintTree.repaint();
         }
     }
 
+
     class PaintTree extends JPanel {
-        protected HashSet<AVLTree.TreeNode<Integer>> setOfHighlightedNodes =
-                new HashSet<AVLTree.TreeNode<Integer>>();
+        protected HashSet<AVLTree.TreeNode<Integer>> setOfHighlightedNodes = new HashSet<AVLTree.TreeNode<Integer>>();
         protected int radius = 20;
         protected int virticalGap = 50;
 
@@ -233,8 +239,11 @@ public class AVLTreeAnimation extends JApplet {
         }
 
         /** (x, y) is the center of the root */
-        private void displayTree(Graphics g, AVLTree.TreeNode root,
-                                 int x, int y, int gap) {
+        private void displayTree(Graphics g,
+                                 AVLTree.TreeNode root,
+                                 int x,
+                                 int y,
+                                 int gap) {
             if (root != null) {
                 // Display root
                 if (setOfHighlightedNodes.contains(root)) {
@@ -248,15 +257,17 @@ public class AVLTreeAnimation extends JApplet {
                 g.drawString(root.element + "", x - 6, y + 4);
 
                 // Draw a line to the left node
-                if (root.left != null)
+                if (root.left != null) {
                     connectLeftChild(g, x - gap, y + virticalGap, x, y);
+                }
 
                 // Draw left subtree
                 displayTree(g, root.left, x - gap, y + virticalGap, gap / 2);
 
                 // Draw a line to the right node
-                if (root.right != null)
+                if (root.right != null) {
                     connectRightChild(g, x + gap, y + virticalGap, x, y);
+                }
 
                 // Draw right subtree
                 displayTree(g, root.right, x + gap, y + virticalGap, gap / 2);
@@ -264,10 +275,12 @@ public class AVLTreeAnimation extends JApplet {
         }
 
         private void connectLeftChild(Graphics g,
-                                      int x1, int y1, int x2, int y2) {
+                                      int x1,
+                                      int y1,
+                                      int x2,
+                                      int y2) {
             // (x1, y1) is for left child and (x2, y2) is for the parent
-            double r = Math.sqrt(virticalGap * virticalGap +
-                    (x2 - x1) * (x2 - x1));
+            double r = Math.sqrt(virticalGap * virticalGap + (x2 - x1) * (x2 - x1));
             int x11 = (int) (x1 + radius * (x2 - x1) / r);
             int y11 = (int) (y1 - radius * virticalGap / r);
             int x21 = (int) (x2 - radius * (x2 - x1) / r);
@@ -276,10 +289,12 @@ public class AVLTreeAnimation extends JApplet {
         }
 
         private void connectRightChild(Graphics g,
-                                       int x1, int y1, int x2, int y2) {
+                                       int x1,
+                                       int y1,
+                                       int x2,
+                                       int y2) {
             // (x1, y1) is for left child and (x2, y2) is for the parent
-            double r = Math.sqrt(virticalGap * virticalGap +
-                    (x2 - x1) * (x2 - x1));
+            double r = Math.sqrt(virticalGap * virticalGap + (x2 - x1) * (x2 - x1));
             int x11 = (int) (x1 - radius * (x1 - x2) / r);
             int y11 = (int) (y1 - radius * virticalGap / r);
             int x21 = (int) (x2 + radius * (x1 - x2) / r);
@@ -288,23 +303,31 @@ public class AVLTreeAnimation extends JApplet {
         }
     }
 
-    static class AVLTree<E extends Comparable<E>> extends BinaryTree<E>
-            implements Cloneable {
-        /** Create a default AVL tree */
+
+    static class AVLTree<E extends Comparable<E>> extends BinaryTree<E> implements Cloneable {
+        /**
+         * Create a default AVL tree
+         */
         public AVLTree() {
         }
 
-        /** Create an AVL tree from an array of objects */
+        /**
+         * Create an AVL tree from an array of objects
+         */
         public AVLTree(E[] objects) {
             super(objects);
         }
 
-        /** Override createNewNode to create an AVLTreeNode */
+        /**
+         * Override createNewNode to create an AVLTreeNode
+         */
         protected AVLTreeNode<E> createNewNode(E o) {
             return new AVLTreeNode<E>(o);
         }
 
-        /** insert for animation only */
+        /**
+         * insert for animation only
+         */
         public boolean justInsert(E o) {
             return super.insert(o);
         }
@@ -313,44 +336,46 @@ public class AVLTreeAnimation extends JApplet {
             return super.delete(element);
         }
 
-        /** Override the insert method to balance the tree if necessary */
+        /**
+         * Override the insert method to balance the tree if necessary
+         */
         public boolean insert(E o) {
             boolean successful = super.insert(o);
 
-            if (!successful)
+            if (!successful) {
                 return false; // o is already in the tree
-            else {
+            } else {
                 balancePath(o); // Balance from o to the root if necessary
             }
 
             return true; // o is inserted
         }
 
-        /* For animation */
+        /** For animation */
         public HashSet<TreeNode<E>> findImbalanceSubtree(E o) {
             HashSet<TreeNode<E>> set = new HashSet<TreeNode<E>>();
-            if (findImbalanceNode(o) == null)
+            if (findImbalanceNode(o) == null) {
                 return set;
-            else {
+            } else {
                 AVLTreeNode<E> root = findImbalanceNode(o);
                 addDecendantsToSet(root, set);
                 return set;
             }
         }
 
-        /* For animation */
+        /** For animation */
         public HashSet<TreeNode<E>> findImbalanceSubtreeForDeletion(E o) {
             HashSet<TreeNode<E>> set = new HashSet<TreeNode<E>>();
-            if (findImbalanceNode(o) == null)
+            if (findImbalanceNode(o) == null) {
                 return set;
-            else {
+            } else {
                 AVLTreeNode<E> root = findImbalanceNode(o);
                 addDecendantsToSet(root, set);
                 return set;
             }
         }
 
-        /* For animation */
+        /** For animation */
         private void addDecendantsToSet(TreeNode<E> root, HashSet<TreeNode<E>> set) {
             if (root != null) {
                 set.add(root);
@@ -359,7 +384,7 @@ public class AVLTreeAnimation extends JApplet {
             }
         }
 
-        /* For animation */
+        /** For animation */
         private AVLTreeNode<E> findImbalanceNode(E o) {
             if (o == null) return null;
 
@@ -367,8 +392,7 @@ public class AVLTreeAnimation extends JApplet {
             for (int i = path.size() - 1; i >= 0; i--) {
                 AVLTreeNode<E> A = (AVLTreeNode<E>) (path.get(i));
                 updateHeight(A);
-                AVLTreeNode<E> parentOfA = (A == root) ? null :
-                        (AVLTreeNode<E>) (path.get(i - 1));
+                AVLTreeNode<E> parentOfA = (A == root) ? null : (AVLTreeNode<E>) (path.get(i - 1));
 
                 switch (balanceFactor(A)) {
                     case -2:
@@ -377,14 +401,14 @@ public class AVLTreeAnimation extends JApplet {
                         return A;
                 }
             }
-
             return null;
         }
 
-        /* For animation */
+        /** For animation */
         private E findStartingNodeForDeletion(E element) {
-            if (root == null)
+            if (root == null) {
                 return null; // Element is not in the tree
+            }
 
             // Locate the node to be deleted and also locate its parent node
             TreeNode<E> parent = null;
@@ -396,12 +420,14 @@ public class AVLTreeAnimation extends JApplet {
                 } else if (element.compareTo(current.element) > 0) {
                     parent = current;
                     current = current.right;
-                } else
+                } else {
                     break; // Element is in the tree pointed by current
+                }
             }
 
-            if (current == null)
+            if (current == null) {
                 return null; // Element is not in the tree
+            }
 
             // Case 1: current has no left children (See Figure 23.6)
             if (current.left == null) {
@@ -428,18 +454,21 @@ public class AVLTreeAnimation extends JApplet {
             }
         }
 
-        /** Update the height of a specified node */
+        /**
+         * Update the height of a specified node
+         */
         private void updateHeight(AVLTreeNode<E> node) {
-            if (node.left == null && node.right == null) // node is a leaf
+            if (node.left == null && node.right == null) {// node is a leaf
                 node.height = 0;
-            else if (node.left == null) // node has no left subtree
+            } else if (node.left == null) {// node has no left subtree
                 node.height = 1 + ((AVLTreeNode<E>) (node.right)).height;
-            else if (node.right == null) // node has no right subtree
+            } else if (node.right == null) {// node has no right subtree
                 node.height = 1 + ((AVLTreeNode<E>) (node.left)).height;
-            else
-                node.height = 1 +
-                        Math.max(((AVLTreeNode<E>) (node.right)).height,
-                                ((AVLTreeNode<E>) (node.left)).height);
+            } else {
+                node.height = 1 + Math.max(
+                        ((AVLTreeNode<E>) (node.right)).height,
+                        ((AVLTreeNode<E>) (node.left)).height);
+            }
         }
 
         /**
@@ -451,8 +480,7 @@ public class AVLTreeAnimation extends JApplet {
             for (int i = path.size() - 1; i >= 0; i--) {
                 AVLTreeNode<E> A = (AVLTreeNode<E>) (path.get(i));
                 updateHeight(A);
-                AVLTreeNode<E> parentOfA = (A == root) ? null :
-                        (AVLTreeNode<E>) (path.get(i - 1));
+                AVLTreeNode<E> parentOfA = (A == root) ? null : (AVLTreeNode<E>) (path.get(i - 1));
 
                 switch (balanceFactor(A)) {
                     case -2:
@@ -472,18 +500,22 @@ public class AVLTreeAnimation extends JApplet {
             }
         }
 
-        /** Return the balance factor of the node */
+        /**
+         * Return the balance factor of the node
+         */
         private int balanceFactor(AVLTreeNode<E> node) {
-            if (node.right == null) // node has no right subtree
+            if (node.right == null) {// node has no right subtree
                 return -node.height;
-            else if (node.left == null) // node has no left subtree
+            } else if (node.left == null) {// node has no left subtree
                 return +node.height;
-            else
-                return ((AVLTreeNode<E>) node.right).height -
-                        ((AVLTreeNode<E>) node.left).height;
+            } else {
+                return ((AVLTreeNode<E>) node.right).height - ((AVLTreeNode<E>) node.left).height;
+            }
         }
 
-        /** Balance LL (see Figure 9.1) */
+        /**
+         * Balance LL (see Figure 9.1)
+         */
         private void balanceLL(TreeNode<E> A, TreeNode<E> parentOfA) {
             TreeNode<E> B = A.left; // A is left-heavy and B is left-heavy
 
@@ -503,7 +535,9 @@ public class AVLTreeAnimation extends JApplet {
             updateHeight((AVLTreeNode<E>) B);
         }
 
-        /** Balance LR (see Figure 9.1(c)) */
+        /**
+         * Balance LR (see Figure 9.1(c))
+         */
         private void balanceLR(TreeNode<E> A, TreeNode<E> parentOfA) {
             TreeNode<E> B = A.left; // A is left-heavy
             TreeNode<E> C = B.right; // B is right-heavy
@@ -529,7 +563,9 @@ public class AVLTreeAnimation extends JApplet {
             updateHeight((AVLTreeNode<E>) C);
         }
 
-        /** Balance RR (see Figure 9.1(b)) */
+        /**
+         * Balance RR (see Figure 9.1(b))
+         */
         private void balanceRR(TreeNode<E> A, TreeNode<E> parentOfA) {
             TreeNode<E> B = A.right; // A is right-heavy and B is right-heavy
 
@@ -549,7 +585,9 @@ public class AVLTreeAnimation extends JApplet {
             updateHeight((AVLTreeNode<E>) B);
         }
 
-        /** Balance RL (see Figure 9.1(d)) */
+        /**
+         * Balance RL (see Figure 9.1(d))
+         */
         private void balanceRL(TreeNode<E> A, TreeNode<E> parentOfA) {
             TreeNode<E> B = A.right; // A is right-heavy
             TreeNode<E> C = B.left; // B is left-heavy
@@ -581,8 +619,9 @@ public class AVLTreeAnimation extends JApplet {
          * Return false if the element is not in the tree
          */
         public boolean delete(E element) {
-            if (root == null)
+            if (root == null) {
                 return false; // Element is not in the tree
+            }
 
             // Locate the node to be deleted and also locate its parent node
             TreeNode<E> parent = null;
@@ -594,12 +633,14 @@ public class AVLTreeAnimation extends JApplet {
                 } else if (element.compareTo(current.element) > 0) {
                     parent = current;
                     current = current.right;
-                } else
+                } else {
                     break; // Element is in the tree pointed by current
+                }
             }
 
-            if (current == null)
+            if (current == null) {
                 return false; // Element is not in the tree
+            }
 
             // Case 1: current has no left children (See Figure 23.6)
             if (current.left == null) {
@@ -631,11 +672,12 @@ public class AVLTreeAnimation extends JApplet {
                 current.element = rightMost.element;
 
                 // Eliminate rightmost node
-                if (parentOfRightMost.right == rightMost)
+                if (parentOfRightMost.right == rightMost) {
                     parentOfRightMost.right = rightMost.left;
-                else
+                } else {
                     // Special case: parentOfRightMost is current
                     parentOfRightMost.left = rightMost.left;
+                }
 
                 // Balance the tree if necessary
                 balancePath(parentOfRightMost.element);
@@ -645,9 +687,11 @@ public class AVLTreeAnimation extends JApplet {
             return true; // Element inserted
         }
 
-        /** AVLTreeNode is TreeNode plus height */
-        protected static class AVLTreeNode<E extends Comparable<E>>
-                extends BinaryTree.TreeNode<E> {
+
+        /**
+         * AVLTreeNode is TreeNode plus height
+         */
+        protected static class AVLTreeNode<E extends Comparable<E>> extends BinaryTree.TreeNode<E> {
             int height = 0; // New data field
 
             public AVLTreeNode(E o) {
@@ -668,15 +712,15 @@ public class AVLTreeAnimation extends JApplet {
                 AVLTreeNode<E> node = queue.remove(0);
                 tree.insert(node.element);
 
-                if (node.left != null)
+                if (node.left != null) {
                     queue.add((AVLTreeNode<E>) (node.left));
-
-                if (node.right != null)
+                }
+                if (node.right != null) {
                     queue.add((AVLTreeNode<E>) (node.right));
-
+                }
             }
-
             return tree;
         }
     }
+
 }

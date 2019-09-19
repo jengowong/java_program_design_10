@@ -1,10 +1,10 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class TestRBTree {
+
     public static void main(String[] args) {
         // Create an RB tree
-        RBTree<Integer> tree =
-                new RBTree<Integer>(new Integer[]{34, 3, 50});
+        RBTree<Integer> tree = new RBTree<Integer>(new Integer[]{34, 3, 50});
         printTree(tree);
 
         tree.insert(20);
@@ -58,4 +58,5 @@ public class TestRBTree {
         System.out.print("\nThe number of nodes is " + tree.getSize());
         System.out.println();
     }
+
 }

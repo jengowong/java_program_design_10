@@ -1,21 +1,22 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 
-public class RBTreeAnimation extends JApplet {
-    public RBTreeAnimation() {
-        RBTree<Integer> tree = new RBTree<Integer>();
-        add(new RBTreeView(tree));
+public class DisplayBinaryTree extends JApplet {
+
+    public DisplayBinaryTree() {
+        add(new TreeControl(new BinaryTree<Integer>()));
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("RBTreeAnimation");
-        JApplet applet = new RBTreeAnimation();
+        JFrame frame = new JFrame("DisplayBinaryTree");
+        JApplet applet = new DisplayBinaryTree();
         frame.add(applet);
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
 }

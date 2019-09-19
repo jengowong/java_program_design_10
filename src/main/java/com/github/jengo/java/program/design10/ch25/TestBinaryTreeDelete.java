@@ -1,6 +1,7 @@
-package com.github.jengo.java.program.design10;
+package com.github.jengo.java.program.design10.ch25;
 
 public class TestBinaryTreeDelete {
+
     public static void main(String[] args) {
         BinaryTree<String> tree = new BinaryTree<String>();
         tree.insert("George");
@@ -36,4 +37,5 @@ public class TestBinaryTreeDelete {
         System.out.print("\nThe number of nodes is " + tree.getSize());
         System.out.println();
     }
+
 }
